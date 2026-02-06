@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nyashanu High School Sports</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
+
+  <style>
+  /* RESET */
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #f4f4f4; font-family: Arial, sans-serif; line-height: 1.5; color: #333; }
+
+  /* HERO */
+.sports-hero {
+  position: relative;
+  height: 40vh;
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+              url('pictures/sports%20background.png') no-repeat center center;
+  background-size: cover; /* Makes the image fully cover the hero */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+  .sports-hero h1 { font-size: 3rem; color: #fff; }
+  .sports-hero p { color: #ddd; font-size: 1.2rem; margin-top: 10px; }
+
+  /* OVERVIEW SECTION */
+  .sports-overview { padding: 50px 20px; text-align: center; }
+  .sports-overview h2 { font-size: 2.5rem; color: #1e3d59; margin-bottom: 15px; }
+  .sports-overview p { max-width: 600px; margin: 0 auto 30px; color: #555; }
+
+  .sports-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px,1fr));
+    gap: 20px;
+  }
+  .sport-card {
+    background: #fff; padding: 20px; border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    transition: 0.3s;
+  }
+  .sport-card:hover { transform: translateY(-5px); }
+  .sport-card i, .sport-card .icon { font-size: 40px; color: #1e3d59; }
+
+  /* FACILITIES */
+  .sports-facilities { padding: 50px 20px; background: #eef2f3; text-align: center; }
+  .sports-facilities h2 { font-size: 2.5rem; color: #2a4d69; margin-bottom: 30px; }
+
+  .facility-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+    gap: 20px;
+  }
+
+  .facility-card {
+    background: #fff; border-radius: 15px; overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    transition: 0.3s;
+  }
+  .facility-card:hover { transform: translateY(-5px); }
+  .facility-card img { width: 100%; height: 150px; object-fit: cover; }
+
+  /* SCHEDULE */
+  .sports-schedule { padding: 50px 20px; text-align: center; }
+  .sports-schedule table {
+    margin: 0 auto; width: 100%; max-width: 800px; border-collapse: collapse;
+    background: #fff; border-radius: 10px; overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  }
+  .sports-schedule th {
+    background: #d64550; color: #fff; padding: 15px; font-weight: 600;
+  }
+  .sports-schedule td {
+    padding: 15px; border-bottom: 1px solid #eee;
+  }
+  .sports-schedule tr:last-child td { border-bottom: none; }
+
+  /* HIGHLIGHTS */
+  .sports-highlights { padding: 50px 20px; background: #f9f9f9; text-align: center; }
+  .sports-highlights h2 { font-size: 2.5rem; color: #28a745; margin-bottom: 20px; }
+
+  .highlights-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+    gap: 20px;
+  }
+  .highlight-card {
+    background: #fff; border-radius: 15px; overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1); transition: 0.3s;
+  }
+  .highlight-card:hover { transform: translateY(-5px); }
+  .highlight-card img { width: 100%; height: 150px; object-fit: cover; }
+
+  /* FOOTER */
+  .sports-footer {
+    padding: 20px; background: #1e3d59; color: #ccc; text-align: center;
+  }
+  </style>
+
+</head>
+<body>
+
+<!-- HERO -->
+<section class="sports-hero">
+  <div class="hero-content">
+    <h1>Nyashanu High Sports</h1>
+    <p>Developing champions — on the field and in life</p>
+  </div>
+</section>
+
+<!-- OVERVIEW -->
+<section class="sports-overview">
+  <h2>Our Sports Program</h2>
+  <p>At Nyashanu High, we offer a diverse and inclusive sports program...</p>
+
+  <div class="sports-grid">
+    <div class="sport-card"><i class="fas fa-football-ball"></i><h3>Soccer</h3><p>Competitive teams for boys & girls.</p></div>
+    <div class="sport-card"><i class="fas fa-basketball-ball"></i><h3>Basketball</h3><p>Fast-paced inter-house tournaments.</p></div>
+    <div class="sport-card"><i class="fas fa-futbol"></i><h3>Handball</h3><p>Build coordination & accuracy.</p></div>
+    <div class="sport-card"><i class="fas fa-running"></i><h3>Athletics</h3><p>Track and field events.</p></div>
+    <div class="sport-card"><i class="fas fa-volleyball-ball"></i><h3>Volleyball</h3><p>Recreational & competitive play.</p></div>
+    <div class="sport-card"><span class="icon">🎾</span><h3>Tennis</h3><p>Agility, balance, and precision.</p></div>
+  </div>
+</section>
+
+<!-- FACILITIES -->
+<section class="sports-facilities">
+  <h2>Our Facilities</h2>
+
+  <div class="facility-grid">
+
+    <div class="facility-card">
+      <img src="images/phil-goodwin-Ys85uMksDHc-unsplash.jpg">
+      <h4>Soccer Field</h4>
+      <p>Full-size grass pitch with floodlights.</p>
+    </div>
+
+    <div class="facility-card">
+      <img src="images/tiago-aleixo-ToUPFfxkmw8-unsplash.jpg">
+      <h4>Tennis Court</h4>
+      <p>Outdoor hard court with pro nets.</p>
+    </div>
+
+    <div class="facility-card">
+      <img src="images/rohan-reddy-MhQxeXhE-GI-unsplash.jpg">
+      <h4>Basketball Court</h4>
+      <p>Outdoor basketball courts.</p>
+    </div>
+
+    <div class="facility-card">
+      <img src="images/glen-carrie-65kQhNVJQmg-unsplash.jpg">
+      <h4>Netball Court</h4>
+      <p>Marked outdoor netball court.</p>
+    </div>
+
+    <div class="facility-card">
+      <img src="images/jannes-glas-0NaQQsLWLkA-unsplash.jpg">
+      <h4>Volleyball Court</h4>
+      <p>Indoor & sandy volleyball courts.</p>
+    </div>
+
+    <div class="facility-card">
+      <img src="images/salvador-rios-6-cDJzFR1VQ-unsplash.jpg">
+      <h4>Athletics Track</h4>
+      <p>Synthetic lanes for sprints & long distance.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- HIGHLIGHTS -->
+<section class="sports-highlights">
+  <h2>Recent Achievements</h2>
+
+  <div class="highlights-grid">
+
+    <div class="highlight-card">
+      <img src="https://images.unsplash.com/photo-1509027572355-76f383232c6d?auto=format&fit=crop&w=900&q=80">
+      <h4>Soccer Regional Champions</h4>
+      <p>Winners of the Mashonaland East tournament 2024.</p>
+    </div>
+
+    <div class="highlight-card">
+      <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=900&q=80">
+      <h4>Swimming Gala Champions</h4>
+      <p>Record-breaking performance by the swim team.</p>
+    </div>
+
+    <div class="highlight-card">
+      <img src="https://images.unsplash.com/photo-1502810190503-830027c1a137?auto=format&fit=crop&w=900&q=80">
+      <h4>Athletics Medalists</h4>
+      <p>Outstanding track & field achievements.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="sports-footer">
+  <div class="footer-bottom">
+  <p>
+    Nyashanu High School &copy; 2025. All Rights Reserved.<br>
+    Designed & Developed by <strong>Runesu Trevor</strong>
+    (<a href="mailto:runesutrevor42@gmail.com">runesutrevor42@gmail.com</a>)
+  </p>
+</div>
+
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nyashanu High School | Staff</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  background: #f4f7f9;
+  color: #333;
+}
+
+/* HERO */
+.hero {
+  /* Combine gradient + image */
+  background: 
+              url('images/zach-wear-0XVJ5iMtRrQ-unsplash.jpg') no-repeat center center;
+  background-size: cover; /* Make the image cover the entire section */
+  color: white;
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.hero h1 { margin: 0; font-size: 2.8rem; }
+.hero p { margin-top: 10px; font-size: 1.1rem; }
+
+/* SECTION TITLE */
+.section-title {
+  text-align: center;
+  margin: 40px 0 20px;
+  color: #004080;
+}
+
+/* Head & Reverend */
+.highlight-container {
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:15px;
+  margin:20px;
+}
+.highlight-card {
+  background:white;
+  border-radius:10px;
+  overflow:hidden;
+  box-shadow:0 6px 15px rgba(0,0,0,0.08);
+  text-align:center;
+  width:220px;
+}
+.highlight-card img { width:100%; height:180px; object-fit:cover; }
+.highlight-card h3 { margin:10px 0 5px; font-size:1.1rem; }
+.highlight-card p { margin-bottom:10px; font-size:0.9rem; }
+
+/* Staff grid (4 per row) */
+.staff-grid {
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap:15px;
+  max-width:1100px;
+  margin: auto;
+  padding: 20px;
+}
+.staff-card {
+  background:white;
+  border-radius:8px;
+  text-align:center;
+  padding:10px;
+  box-shadow:0 3px 8px rgba(0,0,0,0.06);
+}
+.staff-card img { width:100%; height:120px; object-fit:cover; border-radius:6px; }
+.staff-card h4 { margin:8px 0 4px; font-size:0.95rem; color:#004080; }
+.staff-card p { margin:0; font-size:0.85rem; color:#666; }
+
+/* Buttons */
+.toggle-buttons {
+  text-align:center;
+  margin:30px 0;
+}
+.toggle-buttons button {
+  background:#004080;
+  color:white;
+  border:none;
+  padding:10px 20px;
+  margin:5px;
+  border-radius:6px;
+  cursor:pointer;
+  font-size:0.95rem;
+}
+.toggle-buttons button:hover { background:#0066cc; }
+
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <h1>Meet Our Staff</h1>
+  <p>Teaching & Non-Teaching Team</p>
+</section>
+
+<!-- Head & Reverend -->
+<div class="highlight-container">
+  <div class="highlight-card">
+    <img src="https://via.placeholder.com/400x300?text=Dunatuna+Jackson" alt="Head">
+    <h3>Dunatuna Jackson</h3>
+    <p>Head</p>
+  </div>
+  <div class="highlight-card">
+    <img src="https://via.placeholder.com/400x300?text=Reverend+Name" alt="Reverend">
+    <h3></h3>
+    <p>Reverend</p>
+  </div>
+</div>
+
+<!-- Buttons to toggle staff -->
+<div class="toggle-buttons">
+  <button id="showTeaching">Teaching Staff</button>
+  <button id="showNonTeaching">Non-Teaching Staff</button>
+</div>
+
+<!-- Staff Grid -->
+<div id="staffContainer" class="staff-grid"></div>
+
+<script>
+// Default staff data
+const teachingStaff = [
+  {name:"Mukapa Kumbirai", role:"Deputy Head"},
+  {name:"Mupaniya Learnmore", role:"Senior Teacher"},
+  {name:"Mushangwe Panganai", role:"Senior Teacher"},
+  {name:"Chipika Veronaica", role:"Senior Teacher"},
+  {name:"Sithole Henry", role:"English H.O.D"},
+  {name:"Nyakaringa Joseph", role:"Mathematics H.O.D"},
+  {name:"Mamire Edmore", role:"Biology Teacher"},
+  {name:"Mahamba Tsitsi", role:"Chemistry Teacher"},
+  {name:"Musukutwa Delight", role:"Chemistry Teacher"},
+  {name:"Chizodza Pardon", role:"Family & Religious Studies Teacher"},
+  {name:"Mutsvedu Phillip", role:"Geography Teacher"},
+  {name:"Gapu Alec", role:"History Teacher"},
+  {name:"Mukapa Letwin", role:"Mathematics Teacher"},
+  {name:"Marireinyaka Showman", role:"Mathematics Teacher"},
+  {name:"Kwenda Makomborero", role:"Food Technology & Design Teacher"},
+  {name:"Muwoni Conlius", role:"Agriculture Teacher"},
+  {name:"Kaputa Fatima", role:"Crop Science Teacher"},
+  {name:"Rasara Ernest", role:"English Teacher"},
+  {name:"Ziso Hardlife", role:"English Teacher"},
+  {name:"Hanyire Annamore", role:"Shona Teacher"},
+  {name:"Chimuka Rangarirai", role:"Shona Teacher"},
+  {name:"Viriri Onard", role:"Music Teacher"},
+  {name:"Mufadza Johnson", role:"Heritage Studies Teacher"},
+  {name:"Mlambo Netsai", role:"Heritage Studies Teacher"},
+  {name:"Maramba Vengence", role:"Economics Teacher"},
+  {name:"Sada Marshalton", role:"Sport Science Teacher"},
+  {name:"Mafemba Tinashe", role:"Building Technology & Design Teacher"},
+  {name:"Mavheneke Jennifer", role:"Computer Science Teacher"},
+  {name:"Tuti Simbarashe", role:"Business Studies Teacher"},
+  {name:"Kurehwatira Justin", role:"Physics Teacher"},
+  {name:"Mudzokora Finton", role:"Accounts Teacher"},
+  {name:"Mushangwe Fortune", role:"Agriculture Teacher"}
+];
+
+const nonTeachingStaff = [
+  {name:"Mandishe Eria", role:"Bookkeeper"},
+  {name:"Gamira Tinashe", role:"Accounts Clerk"},
+  {name:"Nyekete Natsai Rosemary", role:"Stores Clerk"},
+  {name:"Mutono Judith", role:"Laboratory Technician"},
+  {name:"Zvekare Luke", role:"Tuckshop Attendant"},
+  {name:"Mapurisa Primrose", role:"Accounting Assistant"},
+  {name:"Madamombe Edmore", role:"Assistant Cook"},
+  {name:"Nehonde Ananias", role:"Maintenance Assistant"},
+  {name:"Mavesara Jephita", role:"Boarding Master"},
+  {name:"Chitare Agnes", role:"Boarding Mistress"},
+  {name:"Mavesara Norah", role:"Cook Matron"},
+  {name:"Mutamba Tendai", role:"Assistant Cook"},
+  {name:"Tadzembwa Jefris", role:"School Driver"},
+  {name:"Gore Zivanai", role:"Water Attendant"},
+  {name:"Mushangwe Laina", role:"Assistant Cook"},
+  {name:"Muchuchuti Chiedza", role:"Assistant Cook"},
+  {name:"Bayanayi Mollin", role:"Assistant Cook"},
+  {name:"Muragu Sylvanos", role:"Assistant Cook"},
+  {name:"Chimupunga Webster", role:"General Hand"},
+  {name:"Zinhanga Richard", role:"General Hand"},
+  {name:"Shavirashe Obey", role:"Procurement Officer"},
+  {name:"Mungani Danai", role:"Graduate Trainee"}
+];
+
+const staffContainer = document.getElementById("staffContainer");
+
+// Function to render staff
+function renderStaff(staffArray) {
+  staffContainer.innerHTML = "";
+  staffArray.forEach(s => {
+    const card = document.createElement("div");
+    card.className = "staff-card";
+    card.innerHTML = `
+      <img src="images/user-profile-icon-free-vector.jpg" alt="${s.name}">
+      <h4>${s.name}</h4>
+      <p>${s.role}</p>
+    `;
+    staffContainer.appendChild(card);
+  });
+}
+
+// Initial render: Teaching Staff
+renderStaff(teachingStaff);
+
+// Button events
+document.getElementById("showTeaching").addEventListener("click", () => renderStaff(teachingStaff));
+document.getElementById("showNonTeaching").addEventListener("click", () => renderStaff(nonTeachingStaff));
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nyashanu High School | Projects</title>
+
+  <!-- ICONS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f2f5;
+      color: #333;
+      line-height: 1.6;
+    }
+    a { text-decoration: none; color: inherit; }
+
+    .projects-hero {
+      height: 40vh;
+      background:
+        linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+        url('images/boarding11.png')
+        center/cover no-repeat;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #fff;
+    }
+    .projects-hero h1 { font-size: 3rem; }
+    .projects-hero p { font-size: 1.2rem; margin-top: 10px; }
+
+    .projects-overview {
+      padding: 50px 20px;
+      text-align: center;
+    }
+    .projects-overview h2 {
+      font-size: 2.5rem;
+      color: #2c3e50;
+      margin-bottom: 20px;
+    }
+    .projects-overview p {
+      max-width: 750px;
+      margin: auto;
+      color: #555;
+      font-size: 1.1rem;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      padding: 30px 20px;
+    }
+    .project-card {
+      background: #fff;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      transition: 0.3s;
+    }
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 35px rgba(0,0,0,0.18);
+    }
+    .project-card img {
+      width: 100%;
+      height: 170px;
+      object-fit: cover;
+    }
+    .card-content {
+      padding: 20px;
+    }
+    .card-content h3 {
+      font-size: 1.4rem;
+      color: #2c3e50;
+      margin-bottom: 10px;
+    }
+    .card-content p { color: #555; }
+    .read-more {
+      display: inline-block;
+      margin-top: 10px;
+      color: #2980b9;
+      font-weight: bold;
+    }
+
+    .featured-section {
+      background: #ecf0f1;
+      padding: 60px 20px;
+    }
+    .featured-section h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      color: #16a085;
+      margin-bottom: 30px;
+    }
+    .featured-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 25px;
+      justify-content: center;
+    }
+    .featured-card {
+      background: #fff;
+      width: 330px;
+      border-radius: 15px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      transition: 0.3s;
+      overflow: hidden;
+    }
+    .featured-card:hover { transform: translateY(-4px); }
+    .featured-card img {
+      width: 100%;
+      height: 190px;
+      object-fit: cover;
+    }
+    .feat-content {
+      padding: 20px;
+    }
+    .feat-content h4 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      color: #16a085;
+    }
+
+    .projects-cta {
+      text-align: center;
+      padding: 40px 20px;
+    }
+    .projects-cta button {
+      padding: 15px 40px;
+      background: #2980b9;
+      border: none;
+      color: #fff;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      cursor: pointer;
+    }
+
+    .nhs-footer {
+      background: #000;
+      color: #fff;
+      padding: 70px 40px;
+      border-top: 5px solid #0a5cff;
+    }
+    .footer-bottom {
+      margin-top: 30px;
+      padding-top: 15px;
+      border-top: 1px solid #0a5cff;
+      text-align: center;
+      font-size: 14px;
+      color: #bbb;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<section class="projects-hero">
+  <div>
+    <h1>Our Projects</h1>
+    <p>Empowering Learners • Serving Community • Building the Future</p>
+  </div>
+</section>
+
+<!-- OVERVIEW -->
+<section class="projects-overview">
+  <h2>What We Do</h2>
+  <p>
+    Nyashanu High School strives to be a centre of innovation, community impact,
+    and academic excellence. Our projects are led by students and teachers who
+    are passionate about service, sustainability, ICT, heritage, and leadership.
+  </p>
+</section>
+
+<!-- PROJECTS GRID -->
+<section class="projects-grid">
+
+  <div class="project-card">
+    <img src="images/jens-aber-xy34SoyaS9U-unsplash.jpg">
+    <div class="card-content">
+      <h3>Pfumvudza Agriculture Project</h3>
+      <p>Students run a maize and vegetable project using Pfumvudza principles to promote climate-smart agriculture.</p>
+      <a href="#" class="read-more">Read More →</a>
+    </div>
+  </div>
+
+  <div class="project-card">
+    <img src="images/patrick-amofah-70XNWtJmT_E-unsplash.jpg">
+    <div class="card-content">
+      <h3>Science & STEM Innovation Club</h3>
+      <p>A club where students design robotics, create science fair projects, and build solar-powered systems.</p>
+      <a href="#" class="read-more">Read More →</a>
+    </div>
+  </div>
+
+  <div class="project-card">
+    <img src="images/luis-cortes-YRHMxi44p2c-unsplash.jpg">
+    <div class="card-content">
+      <h3>ICT Computer Lab Upgrade</h3>
+      <p>Students and teachers work together to install new software, improve networking, and maintain computer literacy.</p>
+      <a href="#" class="read-more">Read More →</a>
+    </div>
+  </div>
+
+  <div class="project-card">
+    <img src="images/soweto-graphics-hx1CGCwHrbs-unsplash.jpg">
+    <div class="card-content">
+      <h3>Community Outreach & Charity Drive</h3>
+      <p>Learners donate clothes, food, and stationery to vulnerable families and nearby primary schools.</p>
+      <a href="#" class="read-more">Read More →</a>
+    </div>
+  </div>
+
+  <div class="project-card">
+    <img src="images/dwayne-joe-BihDQU_0Zlc-unsplash.jpg">
+    <div class="card-content">
+      <h3>Debate & Public Speaking Program</h3>
+      <p>Students compete in district and provincial debate competitions, sharpening communication skills.</p>
+      <a href="#" class="read-more">Read More →</a>
+    </div>
+  </div>
+
+  <div class="project-card">
+    <img src="images/william-warby-8afmGhf-Vjk-unsplash.jpg">
+    <div class="card-content">
+      <h3>Environmental Clean-Up Campaign</h3>
+      <p>Led by the Environmental Club, students clean the school grounds, maintain flowers, and promote recycling.</p>
+      <a href="#" class="read-more">Read More →</a>
+    </div>
+  </div>
+
+</section>
+
+<!-- FEATURED PROJECTS -->
+<section class="featured-section">
+  <h2>Featured Projects</h2>
+
+  <div class="featured-cards">
+    <div class="featured-card">
+      <img src="images/markus-spiske-rNn_TU8dvoY-unsplash.jpg">
+      <div class="feat-content">
+        <h4>Solar Energy for the ICT Lab</h4>
+        <p>Installing solar panels to provide sustainable electricity for computers and labs.</p>
+      </div>
+    </div>
+
+    <div class="featured-card">
+      <img src="images/ajeet-panesar-OmM9NY7XfKQ-unsplash.jpg">
+      <div class="feat-content">
+        <h4>Heritage & Culture Preservation Club</h4>
+        <p>Promoting Zimbabwean traditions through mbira, dance, crafts, and historical research.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="projects-cta">
+  <button onclick="alert('To propose a new project, please contact the school administration.')">
+    Start a Project With Us
+  </button>
+</section>
+
+<footer class="nhs-footer">
+<div class="footer-bottom">
+  <p>
+    Nyashanu High School &copy; 2025. All Rights Reserved.<br>
+    Designed & Developed by <strong>Runesu Trevor</strong>
+    (<a href="mailto:runesutrevor42@gmail.com">runesutrevor42@gmail.com</a>)
+  </p>
+</div>
+</footer>
+
+</body>
+</html>

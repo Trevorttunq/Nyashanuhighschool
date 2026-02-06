@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enroll Your Child</title>
+  <link rel="stylesheet" href="style.css">
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+  <section class="sub-header">
+    <h1>Application Form</h1>
+  </section>
+
+  <section class="enroll-form">
+    <form action="https://formspree.io/f/your-form-id" method="POST">
+      <input type="text" name="parent_name" placeholder="Parent/Guardian Name" required>
+      <input type="text" name="parent_phone_number" placeholder="Parent/Guardian Phone Number" required>
+      <input type="email" name="email" placeholder="Parent Email" required>
+      <input type="text" name="Home Address" placeholder="Home Address" required>
+      <input type="text" name="child_name" placeholder="Child's Full Name" required>
+      <input type="text" name="child's_Previous School Name" placeholder="Child's Previous School Name" required>
+      <select name="form_level" required>
+        <option value="">Select Form Applying For</option>
+        <option value="Form 1">Form 1</option>
+        <option value="Form 1">Form 2</option>
+        <option value="Form 1">Form 3</option>
+        <option value="Form 5">Form 5</option>
+      </select>
+      <textarea name="results" rows="6" placeholder="Enter or attach results summary"></textarea>
+      <input type="file" name="results_file" accept=".pdf,.jpg,.png">
+      <button type="submit" class="hero-btn red-btn">Submit Application</button>
+    </form>
+  </section>
+
+    <section class="footer">
+        <h4>About Us</h4>
+        <p>
+            Nyashanu High School is a mission school dedicated to nurturing disciplined, knowledgeable, and morally upright students.
+            We strive to shape the leaders of tomorrow through faith, excellence, and service.<br>"Vane Shungu Vachafara."
+        </p>
+        <div class="icons">
+            <i class="fa fa-facebook"></i>
+            <i class="fa fa-twitter"></i>
+            <i class="fa fa-instagram"></i>
+            <i class="fa fa-whatsapp"></i>
+            <i class="fa fa-google"></i>
+        </div>
+        <p>© 2025 Nyashanu High School. All rights reserved.</p>
+        
+    </section>
+    <script>
+    var navLinks = document.getElementById("navLinks");
+    function showMenu(){ navLinks.style.right = "0"; }
+    function hideMenu(){ navLinks.style.right = "-200px"; }
+  </script>
+</body>
+</html
+  

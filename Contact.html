@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact - Nyashanu High School</title>
+  <link rel="stylesheet" href="style.css">
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+  <section class="sub-header">
+    <nav>
+      <a href="index.html"><img src="images/logo1.png"></a>
+      <div class="nav-links" id="navLinks">
+        <i class="fa fa-times" onclick="hideMenu()"></i>
+        <ul>
+           <li><a href="Index.html">HOME</a></li>
+           <li><a href="About.html">ABOUT</a></li>
+           <li><a href="ENROLL CHILD.html">ENROLL CHILD</a></li>
+           <li><a href="Blog.html">BLOG</a></li>
+           <li><a href="Contact.html">CONTACT-US</a></li>
+           <li><a href="events.html">EVENTS</a></li>
+           <li><a href="gallery.html">GALLERY</a></li>
+             <li><a href="staff.html">STAFF</a></li>
+        </ul>
+      </div>
+      <i class="fa fa-bars" onclick="showMenu()"></i>
+    </nav>
+    <h1>Contact Us</h1>
+  </section>
+
+  <section class="contact-us">
+    <div class="row">
+      <div class="contact-col">
+        <h3>Get in Touch</h3>
+        <p><i class="fa fa-home"></i> Nyashanu High School, Buhera, Zimbabwe</p>
+        <p><i class="fa fa-phone"></i> +263 77 123 4567</p>
+        <p><i class="fa fa-envelope"></i> info@nyashanuhigh.ac.zw</p>
+      </div>
+      <div class="contact-col"> 
+        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST"> <div class="input-box"> 
+          <i class="fa fa-user"></i> <input type="text" name="Name" placeholder="Your Name" required> 
+        </div>
+         <div class="input-box"> 
+          <i class="fa fa-envelope"></i> 
+          <input type="email" name="Email" placeholder="Your Email" required> 
+        </div> 
+        <div class="input-box"> 
+          <i class="fa fa-comment"></i> 
+          <textarea name="Message" rows="6" placeholder="Your Message" required></textarea> 
+        </div> 
+        <button type="submit">Send Message</button>
+       </form> 
+      </div> 
+
+      </div>
+    </div>
+  </section>
+
+    <section class="footer">
+        <h4>About Us</h4>
+        <p>
+            Nyashanu High School is a mission school dedicated to nurturing disciplined, knowledgeable, and morally upright students.
+            We strive to shape the leaders of tomorrow through faith, excellence, and service.<br>"Vane Shungu Vachafara."
+        </p>
+        <div class="icons">
+            <i class="fa fa-facebook"></i>
+            <i class="fa fa-twitter"></i>
+            <i class="fa fa-instagram"></i>
+            <i class="fa fa-whatsapp"></i>
+            <i class="fa fa-google"></i>
+        </div>
+        <p>© 2025 Nyashanu High School. All rights reserved.</p>
+        
+    </section>
+    <script>
+    var navLinks = document.getElementById("navLinks");
+    function showMenu(){ navLinks.style.right = "0"; }
+    function hideMenu(){ navLinks.style.right = "-200px"; }
+  </script>
+</body>
+</html

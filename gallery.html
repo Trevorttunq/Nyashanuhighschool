@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery - Nyashanu High School</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <style>
+    /* ===== LIGHTBOX STYLES ===== */
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.9);
+      text-align: center;
+      padding-top: 60px;
+    }
+
+    .lightbox-content {
+      width: 80%;
+      max-width: 900px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(255,255,255,0.3);
+    }
+
+    .lightbox-caption {
+      color: #fff;
+      margin-top: 10px;
+      font-size: 18px;
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 35px;
+      color: #fff;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .close:hover { color: #f4b400; }
+
+    /* Navigation arrows */
+    .prev, .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: auto;
+      padding: 16px;
+      color: white;
+      font-weight: bold;
+      font-size: 30px;
+      transition: 0.3s;
+      user-select: none;
+      border-radius: 3px;
+    }
+
+    .prev { left: 15%; }
+    .next { right: 15%; }
+
+    .prev:hover, .next:hover {
+      background-color: rgba(244,180,0,0.6);
+      color: black;
+    }
+
+    @media (max-width: 700px) {
+      .lightbox-content { width: 95%; }
+      .prev, .next { top: 45%; font-size: 24px; }
+    }
+
+    /* ===== GALLERY FIX ===== */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+      justify-items: center;
+      align-items: center;
+      margin-top: 30px;
+    }
+
+    .gallery-grid img,
+    .gallery-grid video {
+      width: 100%;
+      height: 100%;
+      max-width: 400px;
+      object-fit: cover;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .gallery-grid img:hover,
+    .gallery-grid video:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <section class="sub-header">
+    <h1>Gallery</h1>
+  </section>
+
+  <!-- ===== GALLERY SECTION ===== -->
+  <section class="page-section">
+    <p>Explore the vibrant life of our school through pictures — academics, sports, and culture.</p>
+
+    <div class="gallery-grid">
+      <img src="pictures/volley ball game.png" alt="Volley ball game">
+      <img src="pictures/school plot.png" alt="School plot">
+      <img src="pictures/assembly.jpg" alt="School assembly">
+      <img src="pictures/library.jpg" alt="Library">
+      <img src="pictures/cabbages.jpg" alt="School projects">
+      <img src="pictures/pigs.jpg" alt="School projects">
+      <img src="pictures/Shava hall.jpg" alt="Shava Hall">
+      <img src="pictures/practical.jpg" alt="Agriculture practical">
+      <img src="pictures/tour.jpg" alt="Field trip">
+      <img src="pictures/WhatsApp Image 2025-10-28 at 13.46.33_53b6908e.jpg" alt="Field trip">
+  
+
+      <!-- ✅ Video fits properly in grid -->
+      <video controls poster="pictures/field trip thumbnail.jpg">
+        <source src="pictures/field trip.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+
+      <img src="pictures/sports team.jpg" alt="Sports team">
+      <img src="pictures/sunday service.jpg" alt="Sunday service">
+      <img src="pictures/teachers in meeting.jpg" alt="Teachers meeting">
+      <img src="pictures/20251106_133454.jpg" alt="School gate">
+    </div>
+  </section>
+
+  <!-- ===== LIGHTBOX ===== -->
+  <div id="lightbox" class="lightbox">
+    <span class="close" onclick="closeLightbox()">&times;</span>
+    <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+    <img class="lightbox-content" id="lightbox-img">
+    <a class="next" onclick="changeSlide(1)">&#10095;</a>
+    <div class="lightbox-caption" id="lightbox-caption"></div>
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+<footer class="nhs-footer">
+  <div class="footer-grid">
+    
+    <!-- About -->
+    <div class="footer-section">
+      <h3>NYASHANU HIGH SCHOOL</h3>
+      <p>
+        A mission school committed to discipline, excellence, Christian values, and academic brilliance.  
+        “Vane Shungu Vachafara.”
+      </p>
+    </div>
+
+    <!-- Contact -->
+    <div class="footer-section">
+      <h3>CONTACT</h3>
+      <ul>
+        <li>📍 Nyashanu, Buhera — Zimbabwe</li>
+
+        <!-- Click-to-call number -->
+        <li>📞 <a href="tel:+263775088035">+263 77 5088035</a></li>
+
+        <!-- Click-to-email -->
+        <li>✉️ <a href="mailto:info@nyashanuhighrcz.com">info@nyashanuhighrcz.com</a></li>
+      </ul>
+    </div>
+
+    <!-- Links -->
+    <div class="footer-section">
+      <h3>QUICK LINKS</h3>
+      <ul>
+        <li><a href="About.html">About</a></li>
+        <li><a href="ENROLL CHILD.html">Admissions</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="staff.html">Staff</a></li>
+      </ul>
+    </div>
+
+    <!-- Social & Newsletter -->
+    <div class="footer-section">
+      <h3>CONNECT</h3>
+      <div class="footer-icons">
+
+        <!-- Replace # with actual URLs -->
+        <a href="https://facebook.com"><i class="fa fa-facebook"></i></a>
+        <a href="https://instagram.com"><i class="fa fa-instagram"></i></a>
+        <a href="https://twitter.com"><i class="fa fa-twitter"></i></a>
+
+        <!-- WhatsApp Click to Chat -->
+        <a href="https://wa.me/263775088035"><i class="fa fa-whatsapp"></i></a>
+      </div>
+
+      <form class="newsletter">
+        <input type="email" placeholder="Subscribe Email">
+        <button>Join</button>
+      </form>
+    </div>
+
+  </div>
+
+<div class="footer-bottom">
+  <p>
+    Nyashanu High School &copy; 2025. All Rights Reserved.<br>
+    Designed & Developed by <strong>Runesu Trevor</strong>
+    (<a href="mailto:runesutrevor42@gmail.com">runesutrevor42@gmail.com</a>)
+  </p>
+</div>
+
+</footer>
+
+  <!-- ===== JAVASCRIPT ===== -->
+  <script>
+    const galleryImages = document.querySelectorAll('.gallery-grid img');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxCaption = document.getElementById('lightbox-caption');
+    let currentIndex = 0;
+
+    galleryImages.forEach((img, index) => {
+      img.addEventListener('click', () => {
+        openLightbox(index);
+      });
+    });
+
+    function openLightbox(index) {
+      lightbox.style.display = 'block';
+      currentIndex = index;
+      showSlide();
+    }
+
+    function closeLightbox() {
+      lightbox.style.display = 'none';
+    }
+
+    function changeSlide(direction) {
+      currentIndex += direction;
+      if (currentIndex < 0) currentIndex = galleryImages.length - 1;
+      if (currentIndex >= galleryImages.length) currentIndex = 0;
+      showSlide();
+    }
+
+    function showSlide() {
+      const img = galleryImages[currentIndex];
+      lightboxImg.src = img.src;
+      lightboxCaption.innerText = img.alt;
+    }
+
+    window.addEventListener('click', (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') changeSlide(1);
+      if (e.key === 'ArrowLeft') changeSlide(-1);
+      if (e.key === 'Escape') closeLightbox();
+    });
+  </script>
+</body>
+</html>
