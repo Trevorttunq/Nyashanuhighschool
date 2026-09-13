@@ -1,58 +1,272 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   <meta charset="UTF-8">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Nyashanu High School</title>
-  <link rel="stylesheet" href="style.css">
-   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
-<body>
-  <section class="sub-header">
-    <h1>About Nyashanu High School</h1>
-  </section>
+  <title>About Nyashanu High School | Nyashanu Mission</title>
 
-  <section class="about-us">
-    <div class="about-col">
-      <h1>Our Mission </h1>
-      <p>Nyashanu High School, established by the Reformed Church in Zimbabwe, is dedicated to be a collective Ubuntu repository of synergies of education exellence with inclusivity and intergrity by 2030.</p>
-      <h1>Vision</h1>
-      <p>Our commitment to the transformation of human dignity through connectivity and accountability</p>
-      <a href="contact.html" class="about-btn">Contact Us</a>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+  <style>
+    :root{
+      --navy:#071a33;--navy2:#0d2b4d;--blue:#1769aa;
+      --gold:#d7a83e;--gold2:#f3d47b;--white:#fff;
+      --ink:#142033;--muted:#64748b;--surface:#f5f8fc;
+      --border:rgba(15,39,67,.11);
+    }
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{font-family:Inter,Arial,sans-serif;background:var(--surface);color:var(--ink);line-height:1.7;overflow-x:hidden}
+    a{text-decoration:none;color:inherit}
+    img{display:block;max-width:100%}
+
+    .topbar{position:absolute;top:0;left:0;width:100%;z-index:20;padding:20px clamp(14px,5vw,70px)}
+    .nav{max-width:1250px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:13px 18px;border:1px solid rgba(255,255,255,.18);border-radius:18px;background:rgba(4,19,37,.65);backdrop-filter:blur(18px);box-shadow:0 15px 40px rgba(0,0,0,.2)}
+    .brand{display:flex;align-items:center;gap:12px;color:#fff;font-weight:800;font-size:14px}
+    .brand-mark{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,var(--gold),var(--gold2));color:var(--navy)}
+    .nav-links{display:flex;align-items:center;gap:4px}
+    .nav-links a{color:rgba(255,255,255,.87);padding:10px 12px;border-radius:9px;font-size:12px;font-weight:700;transition:.25s}
+    .nav-links a:hover,.nav-links a.active{background:rgba(255,255,255,.1);color:#fff}
+    .menu-btn{display:none;color:#fff;font-size:22px;cursor:pointer}
+
+    .about-hero{
+      min-height:67vh;position:relative;display:grid;place-items:center;text-align:center;color:#fff;overflow:hidden;
+      background:linear-gradient(120deg,rgba(3,17,34,.93),rgba(7,35,62,.68)),
+      url('https://images.unsplash.com/photo-1564981797816-1043664bf78d?auto=format&fit=crop&w=2200&q=85') center/cover no-repeat;
+    }
+    .about-hero::before{content:"";position:absolute;width:430px;height:430px;border:1px solid rgba(215,168,62,.2);border-radius:50%;left:-190px;bottom:-240px}
+    .hero-content{position:relative;z-index:2;padding:120px 20px 70px}
+    .eyebrow{display:inline-flex;align-items:center;gap:9px;padding:8px 14px;border:1px solid rgba(255,255,255,.2);border-radius:100px;background:rgba(255,255,255,.08);backdrop-filter:blur(12px);font-size:11px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase}
+    .eyebrow i{color:var(--gold2)}
+    .about-hero h1{font-family:"Playfair Display",Georgia,serif;font-size:clamp(2.8rem,6vw,5.6rem);line-height:1.05;margin:22px 0 14px}
+    .about-hero p{font-size:clamp(1rem,2vw,1.2rem);color:rgba(255,255,255,.77);max-width:720px;margin:auto}
+
+    .intro{max-width:1100px;margin:-55px auto 85px;padding:0 20px;position:relative;z-index:5}
+    .intro-card{background:rgba(255,255,255,.97);border-radius:25px;box-shadow:0 25px 70px rgba(7,26,51,.13);padding:45px clamp(25px,5vw,65px);text-align:center;border:1px solid rgba(255,255,255,.8)}
+    .section-label{color:var(--blue);font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase}
+    .intro-card h2,.story h2,.values h2,.results h2{font-family:"Playfair Display",Georgia,serif;color:var(--navy);font-size:clamp(2rem,4vw,3rem);margin:8px 0 14px}
+    .intro-card p{max-width:850px;margin:auto;color:var(--muted)}
+
+    .story{max-width:1150px;margin:0 auto 100px;padding:0 25px;display:grid;grid-template-columns:1fr 1fr;gap:55px;align-items:center}
+    .story-image{position:relative;border-radius:25px;overflow:hidden;box-shadow:0 25px 55px rgba(7,26,51,.14)}
+    .story-image img{width:100%;height:500px;object-fit:cover}
+    .image-caption{position:absolute;left:18px;right:18px;bottom:18px;padding:13px 16px;border-radius:14px;background:rgba(3,17,34,.75);backdrop-filter:blur(12px);color:#fff;font-size:12px}
+    .story-copy p{color:var(--muted);margin:0 0 16px}
+    .fact-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:13px;margin-top:25px}
+    .fact{padding:18px;border:1px solid var(--border);background:#fff;border-radius:15px}
+    .fact strong{display:block;color:var(--navy);font-size:1.05rem}
+    .fact span{font-size:12px;color:var(--muted)}
+
+    .values{background:linear-gradient(135deg,var(--navy),var(--navy2));padding:95px 25px;color:#fff}
+    .values-head{text-align:center;max-width:700px;margin:auto auto 45px}
+    .values .section-label{color:var(--gold2)}
+    .values h2{color:#fff}
+    .values-head p{color:rgba(255,255,255,.65)}
+    .value-grid{max-width:1100px;margin:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .value-card{padding:28px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.11);border-radius:20px;backdrop-filter:blur(10px)}
+    .value-icon{width:45px;height:45px;border-radius:12px;display:grid;place-items:center;background:rgba(215,168,62,.14);color:var(--gold2);margin-bottom:18px}
+    .value-card h3{margin-bottom:8px}.value-card p{color:rgba(255,255,255,.62);font-size:.9rem}
+
+    .results{max-width:1100px;margin:90px auto;padding:0 25px}
+    .results-header{text-align:center;max-width:720px;margin:auto auto 40px}
+    .results-header p{color:var(--muted)}
+    .result-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .result-card{background:#fff;border:1px solid var(--border);border-radius:20px;padding:28px;box-shadow:0 8px 30px rgba(7,26,51,.06)}
+    .result-number{font-family:"Playfair Display",Georgia,serif;font-size:2.5rem;color:var(--blue);font-weight:700}
+    .result-card h3{color:var(--navy);font-size:1rem;margin:5px 0}
+    .result-card p{color:var(--muted);font-size:.86rem}
+
+    .cta{max-width:1100px;margin:0 auto 90px;padding:55px 30px;text-align:center;border-radius:25px;background:linear-gradient(135deg,#1769aa,#071a33);color:#fff;box-shadow:0 20px 55px rgba(7,26,51,.14)}
+    .cta h2{font-family:"Playfair Display",Georgia,serif;font-size:2.2rem;margin-bottom:10px}
+    .cta p{color:rgba(255,255,255,.68);margin-bottom:22px}
+    .cta a{display:inline-flex;align-items:center;gap:9px;padding:14px 23px;border-radius:12px;background:linear-gradient(135deg,var(--gold),var(--gold2));color:var(--navy);font-weight:800;transition:.25s}
+    .cta a:hover{transform:translateY(-3px)}
+
+    .nhs-footer{background:#030d19;color:#fff;padding:55px 25px 25px}
+    .footer-grid{max-width:1150px;margin:auto;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:35px}
+    .footer-section h3{font-size:.9rem;margin-bottom:13px;color:#fff}
+    .footer-section p,.footer-section li{color:#8da0b4;font-size:.83rem}
+    .footer-section ul{list-style:none}.footer-section li{margin:8px 0}
+    .footer-section a:hover{color:#fff}
+    .footer-icons{display:flex;gap:9px;margin-bottom:17px}
+    .footer-icons a{width:36px;height:36px;display:grid;place-items:center;border-radius:10px;background:rgba(255,255,255,.07);color:#b8c7d5}
+    .newsletter{display:flex;gap:7px}
+    .newsletter input{min-width:0;width:100%;padding:10px;border:1px solid rgba(255,255,255,.12);border-radius:9px;background:rgba(255,255,255,.05);color:#fff}
+    .newsletter button{border:0;border-radius:9px;padding:0 13px;background:var(--gold);color:var(--navy);font-weight:800}
+    .footer-bottom{max-width:1150px;margin:35px auto 0;padding-top:20px;border-top:1px solid rgba(255,255,255,.1);text-align:center;color:#71849a;font-size:13px}
+    .footer-bottom strong{color:#dce6ef}
+
+    @media(max-width:900px){
+      .nav-links{position:fixed;top:0;right:-100%;width:280px;height:100vh;background:#06182d;flex-direction:column;align-items:stretch;padding:90px 25px 30px;transition:.35s;box-shadow:-15px 0 40px rgba(0,0,0,.25)}
+      .nav-links.open{right:0}.nav-links a{padding:15px}.menu-btn{display:block}
+      .story{grid-template-columns:1fr}.value-grid,.result-grid{grid-template-columns:1fr 1fr}
+      .footer-grid{grid-template-columns:1fr 1fr}
+    }
+    @media(max-width:600px){
+      .topbar{padding:12px}.nav{border-radius:14px}.brand{font-size:12px}
+      .brand-mark{width:38px;height:38px}.intro{padding:0 12px}.intro-card{padding:35px 22px}
+      .story{padding:0 16px}.story-image img{height:350px}.fact-grid{grid-template-columns:1fr}
+      .values{padding:70px 16px}.value-grid,.result-grid{grid-template-columns:1fr}
+      .results{padding:0 16px;margin:70px auto}.cta{margin:0 16px 70px}
+      .footer-grid{grid-template-columns:1fr;text-align:center}.footer-icons{justify-content:center}.newsletter{max-width:350px;margin:auto}
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="topbar">
+  <nav class="nav">
+    <a href="index.html" class="brand">
+      <span class="brand-mark"><i class="fa-solid fa-school"></i></span>
+      <span>NYASHANU HIGH SCHOOL</span>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">HOME</a>
+      <a href="About.html" class="active">ABOUT</a>
+      <a href="projects.html">PROJECTS</a>
+      <a href="staff.html">STAFF</a>
+      <a href="sports.html">SPORTS</a>
+      <a href="events.html">EVENTS</a>
+      <a href="gallery.html">GALLERY</a>
+      <a href="ENROLL CHILD.html">ADMISSIONS</a>
     </div>
-          
-    <div class="about-col">
-      <img src="pictures/map.PNG" alt="School Building">
+    <i class="fa-solid fa-bars menu-btn" onclick="toggleMenu()"></i>
+  </nav>
+</header>
+
+<section class="about-hero">
+  <div class="hero-content">
+    <span class="eyebrow"><i class="fa-solid fa-landmark"></i> Our Story</span>
+    <h1>About Nyashanu High School</h1>
+    <p>A mission school in Buhera built around education, faith, community and the development of young people.</p>
+  </div>
+</section>
+
+<section class="intro">
+  <div class="intro-card">
+    <span class="section-label">Who we are</span>
+    <h2>Education With Purpose</h2>
+    <p>
+      Nyashanu High School is a Reformed Church in Zimbabwe school in Buhera District, Manicaland.
+      The school is part of the wider Nyashanu Mission, which also includes a church, primary school
+      and clinic. The mission was established in 1954.
+    </p>
+  </div>
+</section>
+
+<section class="story">
+  <div class="story-image">
+    <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1500&q=85" alt="Students at a school campus">
+    <div class="image-caption"><i class="fa-solid fa-location-dot"></i> Nyashanu Mission • Buhera, Manicaland, Zimbabwe</div>
+  </div>
+
+  <div class="story-copy">
+    <span class="section-label">Our Mission</span>
+    <h2>Growing Through Education, Faith & Service</h2>
+    <p>
+      Nyashanu High School's stated vision is to be a collective Ubuntu repository of synergies of
+      education excellence with inclusivity and integrity by 2030.
+    </p>
+    <p>
+      Its mission focuses on the transformation of human dignity through connectivism and accountability,
+      reflecting the school's emphasis on education as a way of serving learners and the wider community.
+    </p>
+    <p>
+      The school is known for combining academic development with agriculture, sport, practical learning,
+      community service and technology.
+    </p>
+
+    <div class="fact-grid">
+      <div class="fact"><strong>1954</strong><span>Nyashanu Mission established</span></div>
+      <div class="fact"><strong>RCZ</strong><span>Reformed Church in Zimbabwe</span></div>
+      <div class="fact"><strong>Buhera</strong><span>Manicaland Province</span></div>
+      <div class="fact"><strong>Vane Shungu Vachafara</strong><span>School motto</span></div>
     </div>
-  </section>
+  </div>
+</section>
+
+<section class="values">
+  <div class="values-head">
+    <span class="section-label">What defines us</span>
+    <h2>Our Core Values</h2>
+    <p>Principles that shape learning, leadership and service at Nyashanu High School.</p>
+  </div>
+
+  <div class="value-grid">
+    <article class="value-card">
+      <div class="value-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+      <h3>Academic Excellence</h3>
+      <p>Encouraging learners to pursue high standards and develop the knowledge and skills needed for their future.</p>
+    </article>
+
+    <article class="value-card">
+      <div class="value-icon"><i class="fa-solid fa-people-group"></i></div>
+      <h3>Ubuntu & Inclusion</h3>
+      <p>Building a school community that values dignity, cooperation, belonging and opportunity.</p>
+    </article>
+
+    <article class="value-card">
+      <div class="value-icon"><i class="fa-solid fa-cross"></i></div>
+      <h3>Faith & Character</h3>
+      <p>Supporting the development of responsible young people through Christian values, discipline and service.</p>
+    </article>
+  </div>
+</section>
+
+<section class="results">
+  <div class="results-header">
+    <span class="section-label">A record of progress</span>
+    <h2>Recent Highlights</h2>
+    <p>Independent reporting has highlighted Nyashanu High School's academic performance and continued investment in learning.</p>
+  </div>
+
+  <div class="result-grid">
+    <article class="result-card">
+      <div class="result-number">100%</div>
+      <h3>A-Level pass rate</h3>
+      <p>Reported for the 2025 ZIMSEC Advanced Level examinations, with 62 candidates sitting the examinations.</p>
+    </article>
+
+    <article class="result-card">
+      <div class="result-number">92.7%</div>
+      <h3>O-Level pass rate</h3>
+      <p>Reported by TellZim in 2025, up from 85.6% in 2022.</p>
+    </article>
+
+    <article class="result-card">
+      <div class="result-number">875</div>
+      <h3>Learners</h3>
+      <p>Reported in 2025, including day learners from the surrounding community.</p>
+    </article>
+  </div>
+</section>
+
+<section class="cta">
+  <h2>Discover Nyashanu High School</h2>
+  <p>Explore our projects, activities and admissions opportunities.</p>
+  <a href="ENROLL CHILD.html">Explore Admissions <i class="fa-solid fa-arrow-right"></i></a>
+</section>
 
 <footer class="nhs-footer">
   <div class="footer-grid">
-    
-    <!-- About -->
     <div class="footer-section">
       <h3>NYASHANU HIGH SCHOOL</h3>
-      <p>
-        A mission school committed to discipline, excellence, Christian values, and academic brilliance.  
-        “Vane Shungu Vachafara.”
-      </p>
+      <p>A mission school committed to discipline, excellence, Christian values and academic brilliance.<br><br>“Vane Shungu Vachafara.”</p>
     </div>
 
-    <!-- Contact -->
     <div class="footer-section">
       <h3>CONTACT</h3>
       <ul>
-        <li>📍 Nyashanu, Buhera — Zimbabwe</li>
-
-        <!-- Click-to-call number -->
-        <li>📞 <a href="tel:+263775088035">+263 77 5088035</a></li>
-
-        <!-- Click-to-email -->
-        <li>✉️ <a href="mailto:info@nyashanuhighrcz.com">info@nyashanuhighrcz.com</a></li>
+        <li><i class="fa-solid fa-location-dot"></i> Nyashanu, Buhera — Zimbabwe</li>
+        <li><i class="fa-solid fa-phone"></i> <a href="tel:+263775088035">+263 77 5088035</a></li>
+        <li><i class="fa-solid fa-envelope"></i> <a href="mailto:nyashanuhigh@gmail.com">nyashanuhigh@gmail.com</a></li>
       </ul>
     </div>
 
-    <!-- Links -->
     <div class="footer-section">
       <h3>QUICK LINKS</h3>
       <ul>
@@ -64,43 +278,41 @@
       </ul>
     </div>
 
-    <!-- Social & Newsletter -->
     <div class="footer-section">
       <h3>CONNECT</h3>
       <div class="footer-icons">
-
-        <!-- Replace # with actual URLs -->
-        <a href="https://facebook.com"><i class="fa fa-facebook"></i></a>
-        <a href="https://instagram.com"><i class="fa fa-instagram"></i></a>
-        <a href="https://twitter.com"><i class="fa fa-twitter"></i></a>
-
-        <!-- WhatsApp Click to Chat -->
-        <a href="https://wa.me/263775088035"><i class="fa fa-whatsapp"></i></a>
+        <a href="https://facebook.com" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://instagram.com" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://twitter.com" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+        <a href="https://wa.me/263775088035" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
       </div>
-
-      <form class="newsletter">
-        <input type="email" placeholder="Subscribe Email">
-        <button>Join</button>
+      <form class="newsletter" onsubmit="event.preventDefault(); alert('Thank you for subscribing.');">
+        <input type="email" placeholder="Subscribe Email" required>
+        <button type="submit">Join</button>
       </form>
     </div>
-
   </div>
 
-<div class="footer-bottom">
-  <p>
-    Nyashanu High School &copy; 2025. All Rights Reserved.<br>
-    Designed & Developed by <strong>Runesu Trevor</strong>
-    (<a href="mailto:runesutrevor42@gmail.com">runesutrevor42@gmail.com</a>)
-  </p>
-</div>
-
+  <div class="footer-bottom">
+    <p>
+      Nyashanu High School &copy; 2025. All Rights Reserved.<br>
+      Designed & Developed by <strong>Runesu Trevor</strong>
+      (<a href="mailto:runesutrevor42@gmail.com">runesutrevor42@gmail.com</a>)
+    </p>
+  </div>
 </footer>
 
+<script>
+  function toggleMenu(){
+    document.getElementById("navLinks").classList.toggle("open");
+  }
 
-  <script>
-    const navLinks = document.getElementById("navLinks");
-    function showMenu(){ navLinks.style.right = "0"; }
-    function hideMenu(){ navLinks.style.right = "-200px"; }
-  </script>
+  document.querySelectorAll(".nav-links a").forEach(link=>{
+    link.addEventListener("click",()=>{
+      document.getElementById("navLinks").classList.remove("open");
+    });
+  });
+</script>
+
 </body>
 </html>
