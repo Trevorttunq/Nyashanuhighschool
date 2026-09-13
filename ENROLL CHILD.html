@@ -1,58 +1,620 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Enroll Your Child</title>
-  <link rel="stylesheet" href="style.css">
-   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>Nyashanu High School | Admissions</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+  <style>
+    :root{
+      --navy:#071a33;
+      --navy2:#0d2b4d;
+      --blue:#1769aa;
+      --gold:#d7a83e;
+      --gold2:#f3d47b;
+      --white:#fff;
+      --ink:#142033;
+      --muted:#64748b;
+      --surface:#f5f8fc;
+      --border:rgba(15,39,67,.11);
+    }
+
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:Inter,Arial,sans-serif;
+      background:var(--surface);
+      color:var(--ink);
+      line-height:1.6;
+    }
+    a{text-decoration:none;color:inherit}
+
+    .topbar{
+      position:absolute;
+      top:0;left:0;width:100%;
+      z-index:20;
+      padding:20px clamp(14px,5vw,70px);
+    }
+
+    .nav{
+      max-width:1250px;
+      margin:auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:13px 18px;
+      border:1px solid rgba(255,255,255,.18);
+      border-radius:18px;
+      background:rgba(4,19,37,.65);
+      backdrop-filter:blur(18px);
+      box-shadow:0 15px 40px rgba(0,0,0,.2);
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      color:#fff;
+      font-weight:800;
+      font-size:14px;
+    }
+
+    .brand-mark{
+      width:42px;height:42px;
+      border-radius:12px;
+      display:grid;
+      place-items:center;
+      background:linear-gradient(135deg,var(--gold),var(--gold2));
+      color:var(--navy);
+    }
+
+    .nav-links{display:flex;align-items:center;gap:4px}
+    .nav-links a{
+      color:rgba(255,255,255,.87);
+      padding:10px 12px;
+      border-radius:9px;
+      font-size:12px;
+      font-weight:700;
+      transition:.25s;
+    }
+    .nav-links a:hover,
+    .nav-links a.active{
+      background:rgba(255,255,255,.1);
+      color:#fff;
+    }
+
+    .menu-btn{
+      display:none;
+      color:#fff;
+      font-size:22px;
+      cursor:pointer;
+    }
+
+    /* HERO */
+    .admissions-hero{
+      min-height:58vh;
+      position:relative;
+      display:grid;
+      place-items:center;
+      text-align:center;
+      color:#fff;
+      overflow:hidden;
+      background:
+        linear-gradient(120deg,rgba(3,17,34,.92),rgba(7,35,62,.68)),
+        url('https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=2200&q=85')
+        center/cover no-repeat;
+    }
+
+    .admissions-hero::after{
+      content:"";
+      position:absolute;
+      width:450px;height:450px;
+      border:1px solid rgba(215,168,62,.22);
+      border-radius:50%;
+      right:-170px;
+      bottom:-250px;
+    }
+
+    .hero-content{
+      position:relative;
+      z-index:2;
+      padding:120px 20px 65px;
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:9px;
+      padding:8px 14px;
+      border:1px solid rgba(255,255,255,.2);
+      border-radius:100px;
+      background:rgba(255,255,255,.08);
+      backdrop-filter:blur(12px);
+      font-size:11px;
+      font-weight:800;
+      letter-spacing:1.5px;
+      text-transform:uppercase;
+    }
+
+    .eyebrow i{color:var(--gold2)}
+
+    .admissions-hero h1{
+      font-family:"Playfair Display",Georgia,serif;
+      font-size:clamp(2.8rem,6vw,5.5rem);
+      line-height:1.05;
+      margin:22px 0 14px;
+    }
+
+    .admissions-hero p{
+      color:rgba(255,255,255,.78);
+      font-size:clamp(1rem,2vw,1.2rem);
+    }
+
+    /* FORM AREA */
+    .application-wrap{
+      max-width:1100px;
+      margin:-55px auto 90px;
+      padding:0 20px;
+      position:relative;
+      z-index:5;
+    }
+
+    .application-card{
+      background:rgba(255,255,255,.97);
+      border:1px solid rgba(255,255,255,.8);
+      border-radius:26px;
+      box-shadow:0 25px 70px rgba(7,26,51,.14);
+      overflow:hidden;
+    }
+
+    .form-header{
+      padding:38px 42px;
+      background:linear-gradient(135deg,var(--navy),var(--navy2));
+      color:#fff;
+      position:relative;
+    }
+
+    .form-header::after{
+      content:"";
+      position:absolute;
+      width:230px;height:230px;
+      border:1px solid rgba(215,168,62,.2);
+      border-radius:50%;
+      right:-80px;
+      top:-100px;
+    }
+
+    .form-header h2{
+      position:relative;
+      z-index:1;
+      font-family:"Playfair Display",Georgia,serif;
+      font-size:2rem;
+      margin-bottom:7px;
+    }
+
+    .form-header p{
+      position:relative;
+      z-index:1;
+      color:rgba(255,255,255,.67);
+      font-size:.92rem;
+    }
+
+    form{
+      padding:40px 42px 45px;
+    }
+
+    .form-section-title{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      margin:0 0 20px;
+      color:var(--navy);
+      font-weight:800;
+      font-size:1.05rem;
+    }
+
+    .form-section-title i{
+      color:var(--gold);
+      width:25px;
+    }
+
+    .form-grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:18px;
+      margin-bottom:35px;
+    }
+
+    .field{display:flex;flex-direction:column;gap:7px}
+    .field.full{grid-column:1/-1}
+
+    label{
+      font-size:12px;
+      font-weight:800;
+      color:#334155;
+    }
+
+    input,select,textarea{
+      width:100%;
+      border:1px solid #d9e1ea;
+      background:#f8fafc;
+      color:var(--ink);
+      border-radius:12px;
+      padding:14px 15px;
+      font:inherit;
+      font-size:14px;
+      outline:none;
+      transition:.25s;
+    }
+
+    input:focus,select:focus,textarea:focus{
+      border-color:var(--blue);
+      background:#fff;
+      box-shadow:0 0 0 4px rgba(23,105,170,.09);
+    }
+
+    textarea{min-height:130px;resize:vertical}
+
+    .file-box{
+      border:1px dashed #b9c8d8;
+      border-radius:13px;
+      padding:18px;
+      background:#f8fafc;
+    }
+
+    .file-box input{
+      border:0;
+      padding:0;
+      background:transparent;
+      box-shadow:none;
+    }
+
+    .file-note{
+      color:var(--muted);
+      font-size:11px;
+      margin-top:7px;
+    }
+
+    .submit-area{
+      border-top:1px solid var(--border);
+      padding-top:28px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+    }
+
+    .privacy-note{
+      color:var(--muted);
+      font-size:12px;
+      max-width:520px;
+    }
+
+    .submit-btn{
+      border:0;
+      border-radius:12px;
+      padding:15px 28px;
+      background:linear-gradient(135deg,var(--gold),var(--gold2));
+      color:var(--navy);
+      font-weight:800;
+      cursor:pointer;
+      box-shadow:0 10px 25px rgba(215,168,62,.22);
+      transition:.25s;
+      white-space:nowrap;
+    }
+
+    .submit-btn:hover{
+      transform:translateY(-3px);
+      box-shadow:0 15px 30px rgba(215,168,62,.3);
+    }
+
+    /* INFO */
+    .admission-info{
+      max-width:1100px;
+      margin:0 auto 90px;
+      padding:0 20px;
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:20px;
+    }
+
+    .info-card{
+      background:#fff;
+      padding:27px;
+      border:1px solid var(--border);
+      border-radius:20px;
+      box-shadow:0 8px 30px rgba(7,26,51,.06);
+    }
+
+    .info-icon{
+      width:45px;height:45px;
+      display:grid;place-items:center;
+      border-radius:12px;
+      background:#edf5fb;
+      color:var(--blue);
+      margin-bottom:16px;
+    }
+
+    .info-card h3{
+      color:var(--navy);
+      margin-bottom:7px;
+      font-size:1rem;
+    }
+
+    .info-card p{
+      color:var(--muted);
+      font-size:.87rem;
+    }
+
+    /* FOOTER */
+    .nhs-footer{
+      background:#030d19;
+      color:#fff;
+      padding:55px 25px 25px;
+    }
+
+    .footer-inner{
+      max-width:1100px;
+      margin:auto;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:30px;
+    }
+
+    .footer-brand{font-weight:800}
+    .footer-brand small{
+      display:block;
+      color:#7890a8;
+      font-weight:500;
+      margin-top:5px;
+    }
+
+    .footer-contact{
+      text-align:right;
+      color:#9db0c4;
+      font-size:.88rem;
+    }
+
+    .footer-contact a:hover{color:#fff}
+
+    .footer-bottom{
+      max-width:1100px;
+      margin:35px auto 0;
+      padding-top:20px;
+      border-top:1px solid rgba(255,255,255,.1);
+      text-align:center;
+      color:#71849a;
+      font-size:13px;
+    }
+
+    .footer-bottom strong{color:#dce6ef}
+
+    @media(max-width:950px){
+      .nav-links{
+        position:fixed;
+        top:0;right:-100%;
+        width:280px;
+        height:100vh;
+        background:#06182d;
+        flex-direction:column;
+        align-items:stretch;
+        padding:90px 25px 30px;
+        transition:.35s;
+        box-shadow:-15px 0 40px rgba(0,0,0,.25);
+      }
+
+      .nav-links.open{right:0}
+      .nav-links a{padding:15px}
+      .menu-btn{display:block}
+      .admission-info{grid-template-columns:1fr}
+    }
+
+    @media(max-width:650px){
+      .topbar{padding:12px}
+      .nav{border-radius:14px}
+      .brand{font-size:12px}
+      .brand-mark{width:38px;height:38px}
+      .form-header{padding:30px 24px}
+      form{padding:30px 22px}
+      .form-grid{grid-template-columns:1fr}
+      .field.full{grid-column:auto}
+      .submit-area{flex-direction:column;align-items:stretch}
+      .submit-btn{width:100%}
+      .application-wrap{padding:0 12px}
+      .admission-info{padding:0 12px}
+      .footer-inner{flex-direction:column;text-align:center}
+      .footer-contact{text-align:center}
+    }
+  </style>
 </head>
+
 <body>
-  <section class="sub-header">
-    <h1>Application Form</h1>
-  </section>
 
-  <section class="enroll-form">
-    <form action="https://formspree.io/f/your-form-id" method="POST">
-      <input type="text" name="parent_name" placeholder="Parent/Guardian Name" required>
-      <input type="text" name="parent_phone_number" placeholder="Parent/Guardian Phone Number" required>
-      <input type="email" name="email" placeholder="Parent Email" required>
-      <input type="text" name="Home Address" placeholder="Home Address" required>
-      <input type="text" name="child_name" placeholder="Child's Full Name" required>
-      <input type="text" name="child's_Previous School Name" placeholder="Child's Previous School Name" required>
-      <select name="form_level" required>
-        <option value="">Select Form Applying For</option>
-        <option value="Form 1">Form 1</option>
-        <option value="Form 1">Form 2</option>
-        <option value="Form 1">Form 3</option>
-        <option value="Form 5">Form 5</option>
-      </select>
-      <textarea name="results" rows="6" placeholder="Enter or attach results summary"></textarea>
-      <input type="file" name="results_file" accept=".pdf,.jpg,.png">
-      <button type="submit" class="hero-btn red-btn">Submit Application</button>
-    </form>
-  </section>
+<header class="topbar">
+  <nav class="nav">
+    <a href="index.html" class="brand">
+      <span class="brand-mark"><i class="fa-solid fa-school"></i></span>
+      <span>NYASHANU HIGH SCHOOL</span>
+    </a>
 
-    <section class="footer">
-        <h4>About Us</h4>
-        <p>
-            Nyashanu High School is a mission school dedicated to nurturing disciplined, knowledgeable, and morally upright students.
-            We strive to shape the leaders of tomorrow through faith, excellence, and service.<br>"Vane Shungu Vachafara."
-        </p>
-        <div class="icons">
-            <i class="fa fa-facebook"></i>
-            <i class="fa fa-twitter"></i>
-            <i class="fa fa-instagram"></i>
-            <i class="fa fa-whatsapp"></i>
-            <i class="fa fa-google"></i>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">HOME</a>
+      <a href="About.html">ABOUT</a>
+      <a href="projects.html">PROJECTS</a>
+      <a href="staff.html">STAFF</a>
+      <a href="sports.html">SPORTS</a>
+      <a href="events.html">EVENTS</a>
+      <a href="gallery.html">GALLERY</a>
+      <a href="ENROLL CHILD.html" class="active">ADMISSIONS</a>
+    </div>
+
+    <i class="fa-solid fa-bars menu-btn" onclick="toggleMenu()"></i>
+  </nav>
+</header>
+
+<section class="admissions-hero">
+  <div class="hero-content">
+    <span class="eyebrow">
+      <i class="fa-solid fa-graduation-cap"></i>
+      Admissions
+    </span>
+    <h1>Enroll Your Child</h1>
+    <p>Begin the journey towards excellence, discipline and opportunity.</p>
+  </div>
+</section>
+
+<main>
+  <section class="application-wrap">
+    <div class="application-card">
+      <div class="form-header">
+        <h2>Application Form</h2>
+        <p>Please complete the form below with accurate information. Your application will be sent to the school admissions email.</p>
+      </div>
+
+      <form action="https://formspree.io/f/your-form-id" method="POST" enctype="multipart/form-data">
+        <input type="hidden" name="_subject" value="New Nyashanu High School Admission Application">
+        <input type="hidden" name="_replyto" value="">
+
+        <div class="form-section-title">
+          <i class="fa-solid fa-user-shield"></i>
+          Parent / Guardian Information
         </div>
-        <p>© 2025 Nyashanu High School. All rights reserved.</p>
-        
-    </section>
-    <script>
-    var navLinks = document.getElementById("navLinks");
-    function showMenu(){ navLinks.style.right = "0"; }
-    function hideMenu(){ navLinks.style.right = "-200px"; }
-  </script>
+
+        <div class="form-grid">
+          <div class="field">
+            <label for="parent_name">Parent/Guardian Name</label>
+            <input id="parent_name" type="text" name="parent_name" placeholder="Enter full name" required>
+          </div>
+
+          <div class="field">
+            <label for="parent_phone">Parent/Guardian Phone Number</label>
+            <input id="parent_phone" type="tel" name="parent_phone_number" placeholder="Enter phone number" required>
+          </div>
+
+          <div class="field">
+            <label for="email">Parent Email</label>
+            <input id="email" type="email" name="email" placeholder="Enter email address" required>
+          </div>
+
+          <div class="field">
+            <label for="address">Home Address</label>
+            <input id="address" type="text" name="home_address" placeholder="Enter home address" required>
+          </div>
+        </div>
+
+        <div class="form-section-title">
+          <i class="fa-solid fa-child"></i>
+          Student Information
+        </div>
+
+        <div class="form-grid">
+          <div class="field">
+            <label for="child_name">Child's Full Name</label>
+            <input id="child_name" type="text" name="child_name" placeholder="Enter student's full name" required>
+          </div>
+
+          <div class="field">
+            <label for="previous_school">Child's Previous School Name</label>
+            <input id="previous_school" type="text" name="previous_school_name" placeholder="Enter previous school" required>
+          </div>
+
+          <div class="field">
+            <label for="form_level">Form Applying For</label>
+            <select id="form_level" name="form_level" required>
+              <option value="">Select Form Applying For</option>
+              <option value="Form 1">Form 1</option>
+              <option value="Form 2">Form 2</option>
+              <option value="Form 3">Form 3</option>
+              <option value="Form 5">Form 5</option>
+            </select>
+          </div>
+
+          <div class="field full">
+            <label for="results">Results Summary</label>
+            <textarea id="results" name="results" placeholder="Enter a summary of the student's latest results"></textarea>
+          </div>
+
+          <div class="field full">
+            <label for="results_file">Attach Results</label>
+            <div class="file-box">
+              <input id="results_file" type="file" name="results_file" accept=".pdf,.jpg,.jpeg,.png">
+              <div class="file-note">Accepted formats: PDF, JPG, JPEG or PNG.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="submit-area">
+          <p class="privacy-note">
+            By submitting this application, the information provided will be used by Nyashanu High School for admissions purposes.
+          </p>
+          <button type="submit" class="submit-btn">
+            Submit Application <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <section class="admission-info">
+    <div class="info-card">
+      <div class="info-icon"><i class="fa-solid fa-file-circle-check"></i></div>
+      <h3>Complete Information</h3>
+      <p>Please make sure all required fields contain accurate information before submitting.</p>
+    </div>
+
+    <div class="info-card">
+      <div class="info-icon"><i class="fa-solid fa-paperclip"></i></div>
+      <h3>Attach Results</h3>
+      <p>You can include a PDF or image of the student's latest results with the application.</p>
+    </div>
+
+    <div class="info-card">
+      <div class="info-icon"><i class="fa-solid fa-envelope"></i></div>
+      <h3>Admissions Contact</h3>
+      <p>Application enquiries can be directed to <a href="mailto:nyashanuhigh@gmail.com">nyashanuhigh@gmail.com</a>.</p>
+    </div>
+  </section>
+</main>
+
+<footer class="nhs-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      NYASHANU HIGH SCHOOL
+      <small>Vane Shungu Vachafara.</small>
+    </div>
+
+    <div class="footer-contact">
+      <div><i class="fa-solid fa-envelope"></i> <a href="mailto:nyashanuhigh@gmail.com">nyashanuhigh@gmail.com</a></div>
+      <div><i class="fa-solid fa-phone"></i> <a href="tel:+263775088035">+263 77 5088035</a></div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>
+      Nyashanu High School &copy; 2025. All Rights Reserved.<br>
+      Designed & Developed by <strong>Runesu Trevor</strong>
+      (<a href="mailto:runesutrevor42@gmail.com">runesutrevor42@gmail.com</a>)
+    </p>
+  </div>
+</footer>
+
+<script>
+  function toggleMenu(){
+    document.getElementById("navLinks").classList.toggle("open");
+  }
+
+  document.querySelectorAll(".nav-links a").forEach(link => {
+    link.addEventListener("click", () => {
+      document.getElementById("navLinks").classList.remove("open");
+    });
+  });
+</script>
+
 </body>
-</html
-  
+</html>
